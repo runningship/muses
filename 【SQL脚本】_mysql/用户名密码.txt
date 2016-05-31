@@ -1,0 +1,22 @@
+
+	tomcat绝对没问题的版本(编辑菜单等页面报错,换tomcat，注意细节版本，文档大全里面有下载地址)
+
+	apache-tomcat-8.0.15
+	apache-tomcat-7.0.62
+	apache-tomcat-7.0.32
+	apache-tomcat-6.0.43   
+ 
+	
+	访问地址：http://xxxxx:端口/项目名  
+
+	用户名：admin 
+	 
+	密码 ：1
+ 
+
+	请不要直接在数据库修改 密码，密码都是加密过的。登录系统后台进行修改密码
+
+	linux下数据库表名设置下忽略大小写
+
+
+	

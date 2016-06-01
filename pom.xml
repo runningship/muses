@@ -288,13 +288,20 @@
 		    <version>2.2.1</version>
 		  </dependency>  
 		<!-- axis-ant -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>axis-ant</groupId> -->
+<!-- 			<artifactId>axis-ant</artifactId> -->
+<!-- 			<version>1.0</version> -->
+<!-- 			<scope>system</scope> -->
+<!-- 			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/axis-ant.jar</systemPath> -->
+<!-- 		</dependency> -->
+		
 		<dependency>
-			<groupId>axis-ant</groupId>
-			<artifactId>axis-ant</artifactId>
-			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/axis-ant.jar</systemPath>
+		    <groupId>axis</groupId>
+		    <artifactId>axis-ant</artifactId>
+		    <version>1.4</version>
 		</dependency>
+		
 		<!-- fcexporter -->
 		<dependency>
 			<groupId>fcexporter</groupId>
@@ -336,13 +343,21 @@
 			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/fctl.jar</systemPath>
 		</dependency>
 		<!-- json-lib-2.4-jdk15.jar -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>jsonlib</groupId> -->
+<!-- 			<artifactId>jsonlib</artifactId> -->
+<!-- 			<version>1.0</version> -->
+<!-- 			<scope>system</scope> -->
+<!-- 			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/json-lib-2.4-jdk15.jar</systemPath> -->
+<!-- 		</dependency> -->
+		
 		<dependency>
-			<groupId>jsonlib</groupId>
-			<artifactId>jsonlib</artifactId>
-			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/json-lib-2.4-jdk15.jar</systemPath>
+		    <groupId>net.sf.json-lib</groupId>
+		    <artifactId>json-lib</artifactId>
+		    <version>2.4</version>
+		    <classifier>jdk15</classifier>
 		</dependency>
+
 		<!-- jackjson-all-1.7.6 -->
 		<dependency>
 			<groupId>jackson</groupId>
@@ -351,6 +366,7 @@
 			<scope>system</scope>
 			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/jackson-all-1.7.6.jar</systemPath>
 		</dependency>
+		
 		<!-- jpush-java-libraryV2 -->
 		<dependency>
 			<groupId>jpush</groupId>
@@ -359,14 +375,22 @@
 			<scope>system</scope>
 			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/jpush-java-libraryV2.jar</systemPath>
 		</dependency>
+		
 		<!-- mail -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>mail</groupId> -->
+<!-- 			<artifactId>mail</artifactId> -->
+<!-- 			<version>1.0</version> -->
+<!-- 			<scope>system</scope> -->
+<!-- 			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/mail.jar</systemPath> -->
+<!-- 		</dependency> -->
+		
 		<dependency>
-			<groupId>mail</groupId>
-			<artifactId>mail</artifactId>
-			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/mail.jar</systemPath>
+		    <groupId>com.sun.mail</groupId>
+		    <artifactId>javax.mail</artifactId>
+		    <version>1.5.0</version>
 		</dependency>
+
 		<!--mybatis-ehcache-1.0.3 -->
 		<dependency>
 			<groupId>mybatis-ehcache</groupId>
@@ -384,69 +408,117 @@
 			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/mybatis-oscache-1.0.1.jar</systemPath>
 		</dependency>
 		<!-- ojdbc6 -->
-		<dependency>
-			<groupId>ojdbc6</groupId>
-			<artifactId>ojdbc6</artifactId>
-			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/ojdbc6.jar</systemPath>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>ojdbc6</groupId> -->
+<!-- 			<artifactId>ojdbc6</artifactId> -->
+<!-- 			<version>1.0</version> -->
+<!-- 			<scope>system</scope> -->
+<!-- 			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/ojdbc6.jar</systemPath> -->
+<!-- 		</dependency> -->
+
 		<!-- pinyin4j-2.5.0 -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>pinyin4j</groupId> -->
+<!-- 			<artifactId>pinyin4j</artifactId> -->
+<!-- 			<version>1.0</version> -->
+<!-- 			<scope>system</scope> -->
+<!-- 			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/pinyin4j-2.5.0.jar</systemPath> -->
+<!-- 		</dependency> -->
+		
 		<dependency>
-			<groupId>pinyin4j</groupId>
-			<artifactId>pinyin4j</artifactId>
-			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/pinyin4j-2.5.0.jar</systemPath>
+		    <groupId>com.belerweb</groupId>
+		    <artifactId>pinyin4j</artifactId>
+		    <version>2.5.0</version>
 		</dependency>
+
 		<!-- poi-3.11-20141221 -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>poi</groupId> -->
+<!-- 			<artifactId>poi	</artifactId> -->
+<!-- 			<version>1.0</version> -->
+<!-- 			<scope>system</scope> -->
+<!-- 			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/poi-3.11-20141221.jar</systemPath> -->
+<!-- 		</dependency> -->
+		
 		<dependency>
-			<groupId>poi</groupId>
-			<artifactId>poi	</artifactId>
-			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/poi-3.11-20141221.jar</systemPath>
+		    <groupId>org.apache.poi</groupId>
+		    <artifactId>poi</artifactId>
+		    <version>3.11</version>
 		</dependency>
+
 		<!-- poi-examples-3.11-20141221 -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>poi-examples</groupId> -->
+<!-- 			<artifactId>poi-examples</artifactId> -->
+<!-- 			<version>1.0</version> -->
+<!-- 			<scope>system</scope> -->
+<!-- 			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/poi-examples-3.11-20141221.jar</systemPath> -->
+<!-- 		</dependency> -->
+		
 		<dependency>
-			<groupId>poi-examples</groupId>
-			<artifactId>poi-examples</artifactId>
-			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/poi-examples-3.11-20141221.jar</systemPath>
+		    <groupId>org.apache.poi</groupId>
+		    <artifactId>poi-examples</artifactId>
+		    <version>3.11</version>
 		</dependency>
 		<!--poi-excelant-3.11-20141221 -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>poi-excelant</groupId> -->
+<!-- 			<artifactId>poi-excelant</artifactId> -->
+<!-- 			<version>1.0</version> -->
+<!-- 			<scope>system</scope> -->
+<!-- 			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/poi-excelant-3.11-20141221.jar</systemPath> -->
+<!-- 		</dependency> -->
+		
 		<dependency>
-			<groupId>poi-excelant</groupId>
-			<artifactId>poi-excelant</artifactId>
-			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/poi-excelant-3.11-20141221.jar</systemPath>
+		    <groupId>org.apache.poi</groupId>
+		    <artifactId>poi-excelant</artifactId>
+		    <version>3.11</version>
 		</dependency>
+
 		<!--poi-ooxml-3.11-20141221 -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>poi-ooxml</groupId> -->
+<!-- 			<artifactId>poi-ooxml</artifactId> -->
+<!-- 			<version>1.0</version> -->
+<!-- 			<scope>system</scope> -->
+<!-- 			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/poi-ooxml-3.11-20141221.jar</systemPath> -->
+<!-- 		</dependency> -->
+
 		<dependency>
-			<groupId>poi-ooxml</groupId>
-			<artifactId>poi-ooxml</artifactId>
-			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/poi-ooxml-3.11-20141221.jar</systemPath>
+		    <groupId>org.apache.poi</groupId>
+		    <artifactId>poi-ooxml</artifactId>
+		    <version>3.11</version>
 		</dependency>
+
 		<!-- poi-ooxml-schemas-3.11-20141221 -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>poi-ooxml-schemas</groupId> -->
+<!-- 			<artifactId>poi-ooxml-schemas</artifactId> -->
+<!-- 			<version>1.0</version> -->
+<!-- 			<scope>system</scope> -->
+<!-- 			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/poi-ooxml-schemas-3.11-20141221.jar</systemPath> -->
+<!-- 		</dependency> -->
+		
 		<dependency>
-			<groupId>poi-ooxml-schemas</groupId>
-			<artifactId>poi-ooxml-schemas</artifactId>
-			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/poi-ooxml-schemas-3.11-20141221.jar</systemPath>
+		    <groupId>org.apache.poi</groupId>
+		    <artifactId>poi-ooxml-schemas</artifactId>
+		    <version>3.11</version>
 		</dependency>
+
 		<!-- poi-scratchpad-3.11-20141221 -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>poi-scratchpad</groupId> -->
+<!-- 			<artifactId>poi-scratchpad</artifactId> -->
+<!-- 			<version>1.0</version> -->
+<!-- 			<scope>system</scope> -->
+<!-- 			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/poi-scratchpad-3.11-20141221.jar</systemPath> -->
+<!-- 		</dependency> -->
 		<dependency>
-			<groupId>poi-scratchpad</groupId>
-			<artifactId>poi-scratchpad</artifactId>
-			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/poi-scratchpad-3.11-20141221.jar</systemPath>
+		    <groupId>org.apache.poi</groupId>
+		    <artifactId>poi-scratchpad</artifactId>
+		    <version>3.11</version>
 		</dependency>
+
 		<!--QRCode -->
 		<dependency>
 			<groupId>QRCode</groupId>
@@ -456,21 +528,35 @@
 			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/QRCode.jar</systemPath>
 		</dependency>
 		<!-- saaj -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>saaj</groupId> -->
+<!-- 			<artifactId>saaj</artifactId> -->
+<!-- 			<version>1.0</version> -->
+<!-- 			<scope>system</scope> -->
+<!-- 			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/saaj.jar</systemPath> -->
+<!-- 		</dependency> -->
+		
 		<dependency>
-			<groupId>saaj</groupId>
-			<artifactId>saaj</artifactId>
-			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/saaj.jar</systemPath>
+		    <groupId>javax.xml.soap</groupId>
+		    <artifactId>saaj-api</artifactId>
+		    <version>1.3.4</version>
 		</dependency>
+
 		<!-- shiro-all -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>shiro</groupId> -->
+<!-- 			<artifactId>shiro</artifactId> -->
+<!-- 			<version>1.0</version> -->
+<!-- 			<scope>system</scope> -->
+<!-- 			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/shiro-all-1.2.3.jar</systemPath> -->
+<!-- 		</dependency> -->
+		
 		<dependency>
-			<groupId>shiro</groupId>
-			<artifactId>shiro</artifactId>
-			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/shiro-all-1.2.3.jar</systemPath>
+		    <groupId>org.apache.shiro</groupId>
+		    <artifactId>shiro-all</artifactId>
+		    <version>1.2.3</version>
 		</dependency>
+		
 		<!-- sun.misc.BASE64Decoder -->
 		<dependency>
 			<groupId>sun-misc</groupId>
@@ -479,6 +565,7 @@
 			<scope>system</scope>
 			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/sun.misc.BASE64Decoder.jar</systemPath>
 		</dependency>
+		
 		<!-- ueditor -->
 		<dependency>
 			<groupId>ueditor</groupId>
@@ -487,13 +574,20 @@
 			<scope>system</scope>
 			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/ueditor.jar</systemPath>
 		</dependency>
+		
 		<!-- java_websocket -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>java_websocket</groupId> -->
+<!-- 			<artifactId>java_websocket</artifactId> -->
+<!-- 			<version>1.0</version> -->
+<!-- 			<scope>system</scope> -->
+<!-- 			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/java_websocket.jar</systemPath> -->
+<!-- 		</dependency> -->
+		
 		<dependency>
-			<groupId>java_websocket</groupId>
-			<artifactId>java_websocket</artifactId>
-			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/java_websocket.jar</systemPath>
+		    <groupId>org.java-websocket</groupId>
+		    <artifactId>Java-WebSocket</artifactId>
+		    <version>1.3.0</version>
 		</dependency>
 		<!-- weixinapi -->
 		<dependency>
@@ -503,13 +597,26 @@
 			<scope>system</scope>
 			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/weixinapi.jar</systemPath>
 		</dependency>
+		
 		<!-- weaver-1.6.8.RELEASE.jar -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>weaver-1.6.8</groupId> -->
+<!-- 			<artifactId>weaver-1.6.8</artifactId> -->
+<!-- 			<version>1.0</version> -->
+<!-- 			<scope>system</scope> -->
+<!-- 			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/com.springsource.org.aspectj.weaver-1.6.8.RELEASE.jar</systemPath> -->
+<!-- 		</dependency> -->
+		
 		<dependency>
-			<groupId>weaver-1.6.8</groupId>
-			<artifactId>weaver-1.6.8</artifactId>
-			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/com.springsource.org.aspectj.weaver-1.6.8.RELEASE.jar</systemPath>
+		    <groupId>org.aspectj</groupId>
+		    <artifactId>aspectjweaver</artifactId>
+		    <version>1.6.8</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>redis.clients</groupId>
+		    <artifactId>jedis</artifactId>
+		    <version>2.8.1</version>
 		</dependency>
 	</dependencies>
 	<build>

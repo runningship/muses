@@ -103,8 +103,8 @@
 	
 	<!-- ================ Shiro start ================ -->
 		<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
-<!-- 			<property name="sessionManager" ref="sessionManager" /> -->
-<!-- 	        <property name="cacheManager" ref="redisCacheManager" /> -->
+			<property name="sessionManager" ref="sessionManager" />
+	        <property name="cacheManager" ref="redisCacheManager" />
 			<property name="realm" ref="ShiroRealm" />
 		</bean>
 	
@@ -113,7 +113,7 @@
     </bean>
     <bean id="redisCache" class="com.fh.cluster.RedisCache"><!-- 自定义cacheManager -->
         <constructor-arg ref="redisManager"></constructor-arg>
-    </bean>
+    </bean> 
     
 	<bean id="sessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
         <property name="sessionDAO" ref="redisShiroSessionDAO" />

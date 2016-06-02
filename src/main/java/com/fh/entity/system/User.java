@@ -1,5 +1,7 @@
 package com.fh.entity.system;
 
+import java.io.Serializable;
+
 import com.fh.entity.Page;
 
 /**
@@ -12,7 +14,11 @@ import com.fh.entity.Page;
 * 创建时间：2014年6月28日
 * @version 1.0
  */
-public class User {
+public class User implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3271684710587883956L;
 	private String USER_ID;		//用户id
 	private String USERNAME;	//用户名
 	private String PASSWORD; 	//密码

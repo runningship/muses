@@ -104,7 +104,6 @@
 	<!-- ================ Shiro start ================ -->
 		<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
 			<property name="sessionManager" ref="sessionManager" />
-	        <property name="cacheManager" ref="redisCacheManager" />
 			<property name="realm" ref="ShiroRealm" />
 		</bean>
 	
@@ -114,12 +113,14 @@
     <bean id="redisCache" class="com.fh.cluster.RedisCache"><!-- 自定义cacheManager -->
         <constructor-arg ref="redisManager"></constructor-arg>
     </bean> 
-    
-	<bean id="sessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
-        <property name="sessionDAO" ref="redisShiroSessionDAO" />
+    <bean id="sessionManager"  class="com.fh.cluster.MyDefaultWebSessionManager">
+<!--     <bean id="sessionManager"  class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager" > -->
+<!-- 	<bean id="sessionManager" class="org.apache.shiro.web.session.mgt.ServletContainerSessionManager"> -->
+<!--         <property name="sessionDAO" ref="redisShiroSessionDAO" /> -->
+<!--        	<property name="cacheManager" ref="redisCacheManager" /> -->
 <!--         <property name="globalSessionTimeout" value="${shiro.session.timeout}" /> -->
-        <property name="sessionValidationInterval" value="3000000" />
-        <property name="sessionValidationSchedulerEnabled" value="true" />
+<!--         <property name="sessionValidationInterval" value="3000000" /> -->
+        <property name="sessionIdCookieEnabled" value="true" />
     </bean>
     <bean id="redisShiroSessionDAO" class="com.fh.cluster.RedisSessionDAO">
         <property name="redisManager" ref="redisManager" />

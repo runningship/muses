@@ -1,4 +1,7 @@
 package com.fh.entity.system;
+
+import java.io.Serializable;
+
 /**
  * 
 * 类名称：角色
@@ -9,7 +12,11 @@ package com.fh.entity.system;
 * 创建时间：2014年3月10日
 * @version 1.0
  */
-public class Role {
+public class Role implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2529509869520006155L;
 	private String ROLE_ID;
 	private String ROLE_NAME;
 	private String RIGHTS;

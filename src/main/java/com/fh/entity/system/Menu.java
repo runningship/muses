@@ -1,17 +1,17 @@
 package com.fh.entity.system;
 
+import java.io.Serializable;
 import java.util.List;
 /**
  * 
 * 类名称：菜单
 * 类描述： 
-* @author FH QQ 313596790[青苔]
 * 作者单位： 
 * 联系方式：
 * 创建时间：2015年7月27日
 * @version 2.0
  */
-public class Menu {
+public class Menu implements Serializable{
 	
 	private String MENU_ID;		//菜单ID
 	private String MENU_NAME;	//菜单名称

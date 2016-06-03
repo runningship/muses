@@ -28,7 +28,6 @@ import com.fh.util.mail.SimpleMailSender;
 
 /** 
  * 类名称：HeadController
- * 创建人：FH 313596790Q
  * 修改时间：2015年11月23日
  * @version
  */

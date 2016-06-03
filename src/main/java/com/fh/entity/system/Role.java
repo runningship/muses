@@ -6,7 +6,6 @@ import java.io.Serializable;
  * 
 * 类名称：角色
 * 类描述： 
-* @author FH QQ 313596790[青苔]
 * 作者单位： 
 * 联系方式：
 * 创建时间：2014年3月10日

@@ -19,7 +19,6 @@ import com.fh.util.PageData;
 import com.fh.util.Tools;
 
 /** quartz 定时任务调度 数据库自动备份工作域
- * @author FH 3 13 59679 0 Q
  * @date 2016-4-10
  */
 public class DbBackupQuartzJob extends BaseController implements Job{

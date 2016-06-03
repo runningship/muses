@@ -15,7 +15,7 @@ import com.sun.image.codec.jpeg.JPEGImageEncoder;
 
 /** 
  * 说明：图片水印处理类 （报错注意：用安装版的jdk，不要用开发工具自带的jdk）
- * 创建人：FH Q313596790
+ * 
  * 修改时间：2013年12月1日
  * @version
  */

@@ -32,7 +32,6 @@ import com.fh.service.fhdb.brdb.BRdbManager;
 
 /** 
  * 说明：数据库管理(备份和还原)
- * 创建人：FH Q313596790
  * 创建时间：2016-03-30
  */
 @Controller

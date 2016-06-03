@@ -1,4 +1,3 @@
-//创建人：FH fh313596790qq(青苔)
 jQuery(function()
 {
     $ = jQuery ;

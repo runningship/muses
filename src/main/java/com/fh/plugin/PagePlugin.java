@@ -38,9 +38,6 @@ import com.fh.util.Tools;
  * 
 * 类名称：分页插件
 * 类描述： 
-* @author FH
-* 作者单位： 
-* 联系方式：qq313596790
 * 修改时间：2016年2月1日
 * @version 1.0
  */

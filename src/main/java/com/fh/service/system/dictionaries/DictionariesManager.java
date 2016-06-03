@@ -8,7 +8,7 @@ import com.fh.util.PageData;
 
 /** 
  * 说明： 数据字典接口类
- * 创建人：FH Q313596790
+ * 
  * 创建时间：2015-12-16
  * @version
  */

@@ -139,5 +139,4 @@
 		where ROLE_ID=#{ROLE_ID}
 	</update>
 	
-	<!-- fh313596790qq(青苔) -->
 </mapper>

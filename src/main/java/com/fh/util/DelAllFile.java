@@ -4,7 +4,7 @@ import java.io.File;
 
 /**
  * java删除所有文件和文件夹
- * 创建人：FH Q313596790
+ * 
  * 创建时间：2015年1月12日
  * @version
  */

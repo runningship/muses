@@ -7,7 +7,7 @@ import com.fh.util.PageData;
 
 /** 
  * 类名称：代码生成器接口类
- * 创建人：FH Q313596790
+ * 
  * 修改时间：2015年11月24日
  * @version
  */

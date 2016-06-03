@@ -10,7 +10,6 @@ import com.fh.entity.system.Menu;
 
 /**
  * 权限处理
- * @author:fh qq 313596790[青苔]
  * 修改日期：2015/11/19
 */
 public class Jurisdiction {

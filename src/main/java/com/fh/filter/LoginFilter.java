@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.fh.controller.base.BaseController;
 
 /**登录验证过滤器(废弃  com.fh.interceptor替代)
- * @author FH QQ 313596790[青苔]
  *
  */
 public class LoginFilter extends BaseController implements Filter {

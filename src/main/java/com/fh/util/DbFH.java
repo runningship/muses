@@ -35,7 +35,7 @@ import org.apache.commons.logging.LogFactory;
 
 /** 
  * 说明：用于备份、还原数据库、在线编辑SQL
- * 创建人：FH Q313596790
+ * 
  * 修改时间：2016年3月29日
  * @version
  */
@@ -180,7 +180,6 @@ public class DbFH{
 	}
 
 	/**用于执行某表的备份(内部类)线程
-	 * @author FHQ 3 135 9 67 90
 	 * Callable 有返回值的线程接口
 	 */
 	class DbBackUpCallable implements Callable<Object>{
@@ -309,7 +308,6 @@ public class DbFH{
 	}
 	
 	/**用于执行某表或整库的还原(内部类)线程
-	 * @author FHQ 3 1 35 967 90
 	 * Callable 有返回值的线程接口
 	 */
 	class DbRecoverCallable implements Callable<Object>{

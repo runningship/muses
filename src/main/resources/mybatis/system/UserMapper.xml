@@ -323,5 +323,4 @@
 		<include refid="tableName"></include>
 	</select>
 	
-	<!-- fh313596790qq(青苔) -->
 </mapper>

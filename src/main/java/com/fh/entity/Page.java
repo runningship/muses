@@ -6,7 +6,6 @@ import com.fh.util.Tools;
 
 /**
  * 分页类
- * @author FH QQ 313596790[青苔]
  * 创建时间：2014年6月28日
  */
 public class Page {

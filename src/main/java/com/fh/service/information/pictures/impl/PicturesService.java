@@ -13,7 +13,6 @@ import com.fh.util.PageData;
 
 
 /** 图片管理
- * @author fh313596790qq(青苔)
  * 修改时间：2015.11.2
  */
 @Service("picturesService")

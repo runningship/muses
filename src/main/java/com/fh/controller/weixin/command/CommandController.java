@@ -30,7 +30,6 @@ import com.fh.service.weixin.command.CommandService;
 
 /** 
  * 类名称：CommandController
- * 创建人：FH  313596790
  * 创建时间：2015-05-09
  */
 @Controller

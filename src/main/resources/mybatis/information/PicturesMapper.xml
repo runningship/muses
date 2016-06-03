@@ -127,5 +127,4 @@
 				PICTURES_ID = #{PICTURES_ID}
 	</update>
 	
-	<!-- fh QQ313596790(青苔) -->
 </mapper>

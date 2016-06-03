@@ -8,7 +8,7 @@ import java.util.Date;
 
 /** 
  * 说明：日期处理
- * 创建人：FH Q313596790
+ * 
  * 修改时间：2015年11月24日
  * @version
  */
@@ -67,7 +67,6 @@ public class DateUtil {
 	* @param e
 	* @return boolean  
 	* @throws
-	* @author fh
 	 */
 	public static boolean compareDate(String s, String e) {
 		if(fomatDate(s)==null||fomatDate(e)==null){

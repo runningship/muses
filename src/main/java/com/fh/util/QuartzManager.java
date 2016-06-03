@@ -15,7 +15,6 @@ import org.quartz.TriggerKey;
 import org.quartz.impl.StdSchedulerFactory;  
   
 /** 定时任务管理类 
- * @author FH 3 13 59679 0 Q
  * @date 2016-4-9
  */
 public class QuartzManager {  

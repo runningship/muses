@@ -5,7 +5,7 @@ import com.fh.util.PageData;
 
 /** 
  * 说明：按钮权限 接口
- * 创建人：FH Q313596790
+ * 
  * 创建时间：2016-01-16
  * @version
  */

@@ -63,7 +63,6 @@ import javax.net.ssl.X509TrustManager;
  * 
 * 类名称：WeixinController.java
 * 类描述： 微信公共平台开发 
-* @author FH 313596790
 * 作者单位： 
 * 联系方式：
 * 创建时间：2014年7月10日

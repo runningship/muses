@@ -19,7 +19,6 @@ import com.fh.util.Tools;
 /**
 * 导入到EXCEL
 * 类名称：ObjectExcelView.java
-* @author FH Q313596790
 * @version 1.0
  */
 public class ObjectExcelView extends AbstractExcelView{

@@ -9,7 +9,7 @@ import java.util.Set;
 import javax.servlet.http.HttpServletRequest;
 /** 
  * 说明：参数封装Map
- * 创建人：FH Q313596790
+ * 
  * 修改时间：2014年9月20日
  * @version
  */

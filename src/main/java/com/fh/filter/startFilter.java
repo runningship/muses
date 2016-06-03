@@ -26,7 +26,6 @@ import com.fh.controller.base.BaseController;
 
 /**
  * 启动tomcat时运行此类
- * 创建人：FH FH QQ 313596790[青苔]
  * 创建时间：2014年2月17日
  * @version
  */

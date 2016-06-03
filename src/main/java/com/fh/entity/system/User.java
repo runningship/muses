@@ -8,7 +8,6 @@ import com.fh.entity.Page;
  * 
 * 类名称：用户
 * 类描述： 
-* @author FH QQ 313596790[青苔]
 * 作者单位： 
 * 联系方式：
 * 创建时间：2014年6月28日
@@ -29,7 +28,7 @@ public class User implements Serializable{
 	private String IP;			//用户登录ip地址
 	private String STATUS;		//状态
 	private Role role;			//角色对象
-	private Page page;			//分页对象
+//	private Page page;			//分页对象
 	private String SKIN;		//皮肤
 	
 	public String getSKIN() {
@@ -100,13 +99,13 @@ public class User implements Serializable{
 	public void setRole(Role role) {
 		this.role = role;
 	}
-	public Page getPage() {
-		if(page==null)
-			page = new Page();
-		return page;
-	}
-	public void setPage(Page page) {
-		this.page = page;
-	}
+//	public Page getPage() {
+//		if(page==null)
+//			page = new Page();
+//		return page;
+//	}
+//	public void setPage(Page page) {
+//		this.page = page;
+//	}
 	
 }

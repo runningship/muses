@@ -39,7 +39,6 @@ import com.fh.service.information.pictures.PicturesManager;
 
 /** 
  * 类名称：图片管理
- * 创建人：FH Q313596790
  * 创建时间：2015-03-21
  */
 @Controller

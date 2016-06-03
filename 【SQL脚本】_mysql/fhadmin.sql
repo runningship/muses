@@ -13,6 +13,10 @@ File Encoding         : 65001
 Date: 2016-04-12 01:07:33
 */
 
+CREATE SCHEMA `fhadmin` DEFAULT CHARACTER SET utf8mb4;
+
+USE `fhadmin`;
+
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
@@ -499,3 +503,15 @@ CREATE TABLE `weixin_textmsg` (
 -- ----------------------------
 INSERT INTO `weixin_textmsg` VALUES ('695cd74779734231928a253107ab0eeb', '吃饭', '吃了噢噢噢噢', '2015-05-10 22:52:27', '1', '文本回复');
 INSERT INTO `weixin_textmsg` VALUES ('d4738af7aea74a6ca1a5fb25a98f9acb', '关注', '这里是关注后回复的内容', '2015-05-11 02:12:36', '1', '关注回复');
+
+
+-- ----------------------------
+-- Table structure for `TB_NOTE`
+-- ----------------------------
+DROP TABLE IF EXISTS `TB_NOTE`;
+CREATE TABLE `TB_NOTE` (
+ 		`NOTE_ID` varchar(100) NOT NULL,
+		`NAME` varchar(255) DEFAULT NULL COMMENT '姓名',
+		`NOTE` varchar(255) DEFAULT NULL COMMENT '笔记',
+  		PRIMARY KEY (`NOTE_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

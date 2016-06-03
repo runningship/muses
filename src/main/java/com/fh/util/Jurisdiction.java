@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.session.InvalidSessionException;
 import org.apache.shiro.session.Session;
 
 import com.fh.entity.system.Menu;
@@ -125,7 +126,12 @@ public class Jurisdiction {
 	 * @return
 	 */
 	public static String getUsername(){
-		return getSession().getAttribute(Const.SESSION_USERNAME).toString();
+		try {
+			return getSession().getAttribute(Const.SESSION_USERNAME).toString();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			return null;
+		}
 	}
 	
 	/**获取当前按钮权限(增删改查)

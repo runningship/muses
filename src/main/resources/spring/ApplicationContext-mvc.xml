@@ -17,7 +17,9 @@
 	<mvc:resources mapping="/admin/**" location="/,/admin/" />
 	<mvc:resources mapping="/static/**" location="/,/static/" />
 	<mvc:resources mapping="/plugins/**" location="/,/plugins/" />
-	<mvc:resources mapping="/uploadFiles/**" location="/,/uploadFiles/" /> 
+	<mvc:resources mapping="/uploadFiles/**" location="/,/uploadFiles/" />
+	
+	<mvc:default-servlet-handler/>  
 
 	<!-- 访问拦截  -->  
   	<mvc:interceptors>
@@ -45,6 +47,15 @@
 	         <property name="defaultEncoding">    
 	            <value>utf-8</value>    
 	        </property> 
-    </bean>  
+    </bean>
+    
+    <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping">
+       <property name="order" value="1"/>
+       <property name="basePackage" value="com.fh.controller.muses.note"/>
+    </bean>
+    
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
+       <property name="order" value="10"/>
+    </bean> 
 	
 </beans>

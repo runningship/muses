@@ -1,4 +1,4 @@
-package com.fh.service.${packageName}.${objectNameLower};
+package com.fh.service.trade.purchase;
 
 import java.util.List;
 import javax.annotation.Resource;
@@ -8,13 +8,13 @@ import com.fh.entity.Page;
 import com.fh.util.PageData;
 
 /** 
- * 说明： ${TITLE}
+ * 说明： 求购列表
  * 
- * 创建时间：${nowDate?string("yyyy-MM-dd")}
+ * 创建时间：2016-06-04
  * @version
  */
-@Service("${objectNameLower}Service")
-public class ${objectName}Service{
+@Service("purchaseService")
+public class PurchaseService{
 
 	@Resource(name = "daoSupport")
 	private DaoSupport dao;
@@ -24,7 +24,7 @@ public class ${objectName}Service{
 	 * @throws Exception
 	 */
 	public void save(PageData pd)throws Exception{
-		dao.save("${objectName}Mapper.save", pd);
+		dao.save("PurchaseMapper.save", pd);
 	}
 	
 	/**删除
@@ -32,7 +32,7 @@ public class ${objectName}Service{
 	 * @throws Exception
 	 */
 	public void delete(PageData pd)throws Exception{
-		dao.delete("${objectName}Mapper.delete", pd);
+		dao.delete("PurchaseMapper.delete", pd);
 	}
 	
 	/**修改
@@ -40,7 +40,10 @@ public class ${objectName}Service{
 	 * @throws Exception
 	 */
 	public void edit(PageData pd)throws Exception{
-		dao.update("${objectName}Mapper.edit", pd);
+		if(pd!=null){
+			throw new RuntimeException();
+		}
+		dao.update("PurchaseMapper.edit", pd);
 	}
 	
 	/**列表
@@ -49,7 +52,7 @@ public class ${objectName}Service{
 	 */
 	@SuppressWarnings("unchecked")
 	public List<PageData> list(Page page)throws Exception{
-		return (List<PageData>)dao.findForList("${objectName}Mapper.datalistPage", page);
+		return (List<PageData>)dao.findForList("PurchaseMapper.datalistPage", page);
 	}
 	
 	/**列表(全部)
@@ -58,7 +61,7 @@ public class ${objectName}Service{
 	 */
 	@SuppressWarnings("unchecked")
 	public List<PageData> listAll(PageData pd)throws Exception{
-		return (List<PageData>)dao.findForList("${objectName}Mapper.listAll", pd);
+		return (List<PageData>)dao.findForList("PurchaseMapper.listAll", pd);
 	}
 	
 	/**通过id获取数据
@@ -66,7 +69,7 @@ public class ${objectName}Service{
 	 * @throws Exception
 	 */
 	public PageData findById(PageData pd)throws Exception{
-		return (PageData)dao.findForObject("${objectName}Mapper.findById", pd);
+		return (PageData)dao.findForObject("PurchaseMapper.findById", pd);
 	}
 	
 	/**批量删除
@@ -74,7 +77,7 @@ public class ${objectName}Service{
 	 * @throws Exception
 	 */
 	public void deleteAll(String[] ArrayDATA_IDS)throws Exception{
-		dao.delete("${objectName}Mapper.deleteAll", ArrayDATA_IDS);
+		dao.delete("PurchaseMapper.deleteAll", ArrayDATA_IDS);
 	}
 	
 }

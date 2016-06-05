@@ -3,8 +3,11 @@ package com.fh.resolver;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.shiro.SecurityUtils;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.fh.util.PageData;
 /**
  * 
 * 类名称：MyExceptionResolver.java
@@ -15,8 +18,9 @@ public class MyExceptionResolver implements HandlerExceptionResolver{
 
 	public ModelAndView resolveException(HttpServletRequest request,
 			HttpServletResponse response, Object handler, Exception ex) {
-		// TODO Auto-generated method stub
 		System.out.println("==============异常开始=============");
+		//TODO  dump request
+		//TODO dump session
 		ex.printStackTrace();
 		System.out.println("==============异常结束=============");
 		ModelAndView mv = new ModelAndView("error");

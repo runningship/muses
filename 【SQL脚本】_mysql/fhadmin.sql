@@ -505,13 +505,19 @@ INSERT INTO `weixin_textmsg` VALUES ('695cd74779734231928a253107ab0eeb', '吃饭
 INSERT INTO `weixin_textmsg` VALUES ('d4738af7aea74a6ca1a5fb25a98f9acb', '关注', '这里是关注后回复的内容', '2015-05-11 02:12:36', '1', '关注回复');
 
 
+SET FOREIGN_KEY_CHECKS=0;
+
 -- ----------------------------
--- Table structure for `TB_NOTE`
+-- Table structure for `TRADE_PURCHASE`
 -- ----------------------------
-DROP TABLE IF EXISTS `TB_NOTE`;
-CREATE TABLE `TB_NOTE` (
- 		`NOTE_ID` varchar(100) NOT NULL,
-		`NAME` varchar(255) DEFAULT NULL COMMENT '姓名',
-		`NOTE` varchar(255) DEFAULT NULL COMMENT '笔记',
-  		PRIMARY KEY (`NOTE_ID`)
+DROP TABLE IF EXISTS `TRADE_PURCHASE`;
+CREATE TABLE `TRADE_PURCHASE` (
+ 		`PURCHASE_ID` varchar(100) NOT NULL,
+		`NAME` varchar(100) DEFAULT NULL COMMENT '商品名称',
+		`AMOUNT` int(11) NOT NULL COMMENT '数量',
+		`UNIT` varchar(20) DEFAULT NULL COMMENT '单位',
+		`UID` varchar(100) DEFAULT NULL COMMENT '用户id',
+		`TEL` varchar(50) DEFAULT NULL COMMENT '联系电话',
+		`ADDRESS` varchar(255) DEFAULT NULL COMMENT '买家地址',
+  		PRIMARY KEY (`PURCHASE_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

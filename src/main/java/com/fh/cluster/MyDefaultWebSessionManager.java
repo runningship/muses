@@ -7,6 +7,8 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.shiro.cache.CacheManager;
+import org.apache.shiro.cache.MemoryConstrainedCacheManager;
 import org.apache.shiro.session.ExpiredSessionException;
 import org.apache.shiro.session.InvalidSessionException;
 import org.apache.shiro.session.Session;
@@ -45,7 +47,14 @@ public class MyDefaultWebSessionManager extends DefaultSessionManager implements
         return sessionIdCookie;
     }
 
-    @SuppressWarnings({"UnusedDeclaration"})
+    @Override
+	public void setCacheManager(CacheManager cacheManager) {
+    	if(cacheManager!=null){
+    		super.setCacheManager(cacheManager);
+    	}
+	}
+
+	@SuppressWarnings({"UnusedDeclaration"})
     public void setSessionIdCookie(Cookie sessionIdCookie) {
         this.sessionIdCookie = sessionIdCookie;
     }

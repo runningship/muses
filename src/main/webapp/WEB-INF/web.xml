@@ -28,7 +28,7 @@
 		<param-name>webAppRootKey</param-name>
 		<param-value>com.jumore.muses</param-value>
 	</context-param>
-
+    
 	<!-- 连接池 启用Web监控统计功能   start-->
 	<filter>
 		<filter-name>DruidWebStatFilter</filter-name>
@@ -62,6 +62,10 @@
 	</listener>
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
+	<listener>
+		<listener-class>com.fh.listener.WebAppContextListener</listener-class>
 	</listener>
 	
 	<servlet>

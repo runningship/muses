@@ -55,7 +55,7 @@ function getHeadMsg(){
 			 TFHsmsSound = data.FHsmsSound;				//站内信提示音效
 			 wimadress = data.wimadress;				//即时聊天服务器IP和端口
 			 oladress = data.oladress;					//在线管理和站内信服务器IP和端口
-			 online();									//连接在线
+			 //online();									//连接在线
 		}
 	});
 }

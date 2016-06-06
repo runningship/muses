@@ -35,8 +35,8 @@ public class startFilter extends BaseController implements Filter{
 	 * 初始化
 	 */
 	public void init(FilterConfig fc) throws ServletException {
-		this.startWebsocketInstantMsg();
-		this.startWebsocketOnline();
+//		this.startWebsocketInstantMsg();
+//		this.startWebsocketOnline();
 		this.reductionDbBackupQuartzState();
 	}
 	

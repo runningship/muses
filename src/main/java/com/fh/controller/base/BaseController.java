@@ -1,13 +1,21 @@
 package com.fh.controller.base;
 
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.fh.entity.Page;
+import com.fh.util.Jurisdiction;
 import com.fh.util.Logger;
 import com.fh.util.PageData;
 import com.fh.util.UuidUtil;
@@ -57,15 +65,53 @@ public class BaseController {
 		return new Page();
 	}
 	
-	public static void logBefore(Logger logger, String interfaceName){
+	public void logBefore(Logger logger, String interfaceName){
 		logger.info("");
 		logger.info("start");
 		logger.info(interfaceName);
 	}
 	
-	public static void logAfter(Logger logger){
+	public void logAfter(Logger logger){
 		logger.info("end");
 		logger.info("");
 	}
 	
+	@InitBinder
+	public void initBinder(WebDataBinder binder){
+		DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		binder.registerCustomEditor(Date.class, new CustomDateEditor(format,true));
+	}
+	
+	protected boolean checkAddPermission() {
+		if(!Jurisdiction.buttonJurisdiction(getMenuUrl(), "add")){
+			return false;
+		}
+		return true;
+	}
+	
+	protected boolean checkEditPermission() {
+		if(!Jurisdiction.buttonJurisdiction(getMenuUrl(), "edit")){
+			return false;
+		}
+		return true;
+	}
+	
+	protected boolean checkDelPermission() {
+		if(!Jurisdiction.buttonJurisdiction(getMenuUrl(), "del")){
+			return false;
+		}
+		return true;
+	}
+	
+	protected boolean checkListPermission() {
+		if(!Jurisdiction.buttonJurisdiction(getMenuUrl(), "cha")){
+			return false;
+		}
+		return true;
+	}
+	
+	private String getMenuUrl(){
+		String menuUrl = this.getClass().getSimpleName().toLowerCase().replace("controller", "")+"/list.do";
+		return menuUrl;
+	}
 }

@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -33,6 +34,7 @@ import com.fh.service.system.user.UserManager;
 import com.fh.util.AppUtil;
 import com.fh.util.Const;
 import com.fh.util.DateUtil;
+import com.fh.util.JVMUtil;
 import com.fh.util.Jurisdiction;
 import com.fh.util.PageData;
 import com.fh.util.RightsHelper;
@@ -87,14 +89,15 @@ public class LoginController extends BaseController {
 		if(null != KEYDATA && KEYDATA.length == 3){
 			Session session = Jurisdiction.getSession();
 			String sessionCode = (String)session.getAttribute(Const.SESSION_SECURITY_CODE);		//获取session中的验证码
+			boolean isDebug = JVMUtil.isDebug();
 			String code = KEYDATA[2];
-			if(null == code || "".equals(code)){//判断效验码
+			if(StringUtils.isEmpty(code)){//判断效验码
 				errInfo = "nullcode"; 			//效验码为空
 			}else{
 				String USERNAME = KEYDATA[0];	//登录过来的用户名
 				String PASSWORD  = KEYDATA[1];	//登录过来的密码
 				pd.put("USERNAME", USERNAME);
-				if(Tools.notEmpty(sessionCode) && sessionCode.equalsIgnoreCase(code)){		//判断登录验证码
+				if(isDebug || (Tools.notEmpty(sessionCode) && sessionCode.equalsIgnoreCase(code))){		//判断登录验证码
 					String passwd = new SimpleHash("SHA-1", USERNAME, PASSWORD).toString();	//密码加密
 					pd.put("PASSWORD", passwd);
 					pd = userService.getUserByNameAndPwd(pd);	//根据用户名和密码去读取用户信息

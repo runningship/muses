@@ -51,14 +51,5 @@
 	            <value>utf-8</value>    
 	        </property> 
     </bean>
-    
-    <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping">
-       <property name="order" value="1"/>
-       <property name="basePackage" value="com.fh.controller.trade.purchase"/>
-    </bean>
-    
-    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
-       <property name="order" value="10"/>
-    </bean> 
 	
 </beans>

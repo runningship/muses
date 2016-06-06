@@ -1,8 +1,12 @@
 package com.fh.service.trade.purchase;
 
 import java.util.List;
+
 import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
+
+import com.fh.controller.base.BaseController;
 import com.fh.dao.DaoSupport;
 import com.fh.entity.Page;
 import com.fh.util.PageData;
@@ -40,9 +44,6 @@ public class PurchaseService{
 	 * @throws Exception
 	 */
 	public void edit(PageData pd)throws Exception{
-		if(pd!=null){
-			throw new RuntimeException();
-		}
 		dao.update("PurchaseMapper.edit", pd);
 	}
 	

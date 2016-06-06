@@ -1,18 +1,12 @@
 package com.fh.controller.${packageName}.${objectNameLower};
 
 import java.io.PrintWriter;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.annotation.Resource;
-import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
+import javax.annotation.Resource;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -22,8 +16,8 @@ import com.fh.util.AppUtil;
 import com.fh.util.ObjectExcelView;
 import com.fh.util.PageData;
 import com.fh.util.Jurisdiction;
-import com.fh.util.Tools;
-import com.fh.service.${packageName}.${objectNameLower}.${objectName}Service;
+import org.apache.commons.lang.StringUtils;
+import com.fh.service.BaseService;
 
 /** 
  * 说明：${TITLE}
@@ -34,9 +28,9 @@ import com.fh.service.${packageName}.${objectNameLower}.${objectName}Service;
 @RequestMapping(value="/${objectNameLower}")
 public class ${objectName}Controller extends BaseController {
 	
-	String menuUrl = "${objectNameLower}/list.do"; //菜单地址(权限用)
-	@Resource(name="${objectNameLower}Service")
-	private ${objectName}Service ${objectNameLower}Service;
+	//String menuUrl = "${objectNameLower}/list.do"; //菜单地址(权限用)
+	@Resource(name="baseService")
+	private BaseService ${objectNameLower}Service;
 	
 	/**保存
 	 * @param
@@ -45,7 +39,7 @@ public class ${objectName}Controller extends BaseController {
 	@RequestMapping(value="/save")
 	public ModelAndView save() throws Exception{
 		logBefore(logger, Jurisdiction.getUsername()+"新增${objectName}");
-		if(!Jurisdiction.buttonJurisdiction(menuUrl, "add")){return null;} //校验权限
+		if(!checkAddPermission()){return null;} //校验权限
 		ModelAndView mv = this.getModelAndView();
 		PageData pd = new PageData();
 		pd = this.getPageData();
@@ -74,7 +68,7 @@ public class ${objectName}Controller extends BaseController {
 	@RequestMapping(value="/delete")
 	public void delete(PrintWriter out) throws Exception{
 		logBefore(logger, Jurisdiction.getUsername()+"删除${objectName}");
-		if(!Jurisdiction.buttonJurisdiction(menuUrl, "del")){return;} //校验权限
+		if(!checkDelPermission()){return;} //校验权限
 		PageData pd = new PageData();
 		pd = this.getPageData();
 		${objectNameLower}Service.delete(pd);
@@ -89,7 +83,7 @@ public class ${objectName}Controller extends BaseController {
 	@RequestMapping(value="/edit")
 	public ModelAndView edit() throws Exception{
 		logBefore(logger, Jurisdiction.getUsername()+"修改${objectName}");
-		if(!Jurisdiction.buttonJurisdiction(menuUrl, "edit")){return null;} //校验权限
+		if(!checkEditPermission()){return null;} //校验权限
 		ModelAndView mv = this.getModelAndView();
 		PageData pd = new PageData();
 		pd = this.getPageData();
@@ -106,12 +100,11 @@ public class ${objectName}Controller extends BaseController {
 	@RequestMapping(value="/list")
 	public ModelAndView list(Page page) throws Exception{
 		logBefore(logger, Jurisdiction.getUsername()+"列表${objectName}");
-		//if(!Jurisdiction.buttonJurisdiction(menuUrl, "cha")){return null;} //校验权限(无权查看时页面会有提示,如果不注释掉这句代码就无法进入列表页面,所以根据情况是否加入本句代码)
 		ModelAndView mv = this.getModelAndView();
 		PageData pd = new PageData();
 		pd = this.getPageData();
 		String keywords = pd.getString("keywords");				//关键词检索条件
-		if(null != keywords && !"".equals(keywords)){
+		if(StringUtils.isNotEmpty(keywords)){
 			pd.put("keywords", keywords.trim());
 		}
 		page.setPd(pd);
@@ -162,7 +155,7 @@ public class ${objectName}Controller extends BaseController {
 	@ResponseBody
 	public Object deleteAll() throws Exception{
 		logBefore(logger, Jurisdiction.getUsername()+"批量删除${objectName}");
-		if(!Jurisdiction.buttonJurisdiction(menuUrl, "del")){return null;} //校验权限
+		if(!checkDelPermission()){return null;} //校验权限
 		PageData pd = new PageData();		
 		Map<String,Object> map = new HashMap<String,Object>();
 		pd = this.getPageData();
@@ -187,7 +180,7 @@ public class ${objectName}Controller extends BaseController {
 	@RequestMapping(value="/excel")
 	public ModelAndView exportExcel() throws Exception{
 		logBefore(logger, Jurisdiction.getUsername()+"导出${objectName}到excel");
-		if(!Jurisdiction.buttonJurisdiction(menuUrl, "cha")){return null;}
+		if(!checkListPermission()){return null;}
 		ModelAndView mv = new ModelAndView();
 		PageData pd = new PageData();
 		pd = this.getPageData();
@@ -216,9 +209,4 @@ public class ${objectName}Controller extends BaseController {
 		return mv;
 	}
 	
-	@InitBinder
-	public void initBinder(WebDataBinder binder){
-		DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-		binder.registerCustomEditor(Date.class, new CustomDateEditor(format,true));
-	}
 }

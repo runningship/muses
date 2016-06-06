@@ -1,45 +1,36 @@
 package com.fh.controller.trade.purchase;
 
 import java.io.PrintWriter;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import javax.annotation.Resource;
-
-import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
+import javax.annotation.Resource;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-
 import com.fh.controller.base.BaseController;
 import com.fh.entity.Page;
-import com.fh.service.BaseService;
 import com.fh.util.AppUtil;
-import com.fh.util.Jurisdiction;
 import com.fh.util.ObjectExcelView;
 import com.fh.util.PageData;
+import com.fh.util.Jurisdiction;
+import org.apache.commons.lang.StringUtils;
+import com.fh.service.BaseService;
 
 /** 
- * 说明：求购列表
+ * 说明：测试模块
  * 
- * 创建时间：2016-06-04
+ * 创建时间：2016-06-06
  */
 @Controller
 @RequestMapping(value="/purchase")
 public class PurchaseController extends BaseController {
 	
-	String menuUrl = "purchase/list.do"; //菜单地址(权限用)
-	
+	//String menuUrl = "purchase/list.do"; //菜单地址(权限用)
 	@Resource(name="baseService")
-	private BaseService service;
+	private BaseService purchaseService;
 	
 	/**保存
 	 * @param
@@ -48,13 +39,13 @@ public class PurchaseController extends BaseController {
 	@RequestMapping(value="/save")
 	public ModelAndView save() throws Exception{
 		logBefore(logger, Jurisdiction.getUsername()+"新增Purchase");
-		if(!Jurisdiction.buttonJurisdiction(menuUrl, "add")){return null;} //校验权限
+		if(!checkAddPermission()){return null;} //校验权限
 		ModelAndView mv = this.getModelAndView();
 		PageData pd = new PageData();
 		pd = this.getPageData();
 		pd.put("PURCHASE_ID", this.get32UUID());	//主键
 		pd.put("UID", "");	//用户id
-		service.save(pd);
+		purchaseService.save(pd);
 		mv.addObject("msg","success");
 		mv.setViewName("save_result");
 		return mv;
@@ -67,10 +58,10 @@ public class PurchaseController extends BaseController {
 	@RequestMapping(value="/delete")
 	public void delete(PrintWriter out) throws Exception{
 		logBefore(logger, Jurisdiction.getUsername()+"删除Purchase");
-		if(!Jurisdiction.buttonJurisdiction(menuUrl, "del")){return;} //校验权限
+		if(!checkDelPermission()){return;} //校验权限
 		PageData pd = new PageData();
 		pd = this.getPageData();
-		service.delete(pd);
+		purchaseService.delete(pd);
 		out.write("success");
 		out.close();
 	}
@@ -82,11 +73,11 @@ public class PurchaseController extends BaseController {
 	@RequestMapping(value="/edit")
 	public ModelAndView edit() throws Exception{
 		logBefore(logger, Jurisdiction.getUsername()+"修改Purchase");
-		if(!Jurisdiction.buttonJurisdiction(menuUrl, "edit")){return null;} //校验权限
+		if(!checkEditPermission()){return null;} //校验权限
 		ModelAndView mv = this.getModelAndView();
 		PageData pd = new PageData();
 		pd = this.getPageData();
-		service.edit(pd);
+		purchaseService.edit(pd);
 		mv.addObject("msg","success");
 		mv.setViewName("save_result");
 		return mv;
@@ -97,19 +88,17 @@ public class PurchaseController extends BaseController {
 	 * @throws Exception
 	 */
 	@RequestMapping(value="/list")
-//	@RequestMapping(method=RequestMethod.GET)
 	public ModelAndView list(Page page) throws Exception{
 		logBefore(logger, Jurisdiction.getUsername()+"列表Purchase");
-		//if(!Jurisdiction.buttonJurisdiction(menuUrl, "cha")){return null;} //校验权限(无权查看时页面会有提示,如果不注释掉这句代码就无法进入列表页面,所以根据情况是否加入本句代码)
 		ModelAndView mv = this.getModelAndView();
 		PageData pd = new PageData();
 		pd = this.getPageData();
 		String keywords = pd.getString("keywords");				//关键词检索条件
-		if(null != keywords && !"".equals(keywords)){
+		if(StringUtils.isNotEmpty(keywords)){
 			pd.put("keywords", keywords.trim());
 		}
 		page.setPd(pd);
-		List<PageData>	varList = service.list(page);	//列出Purchase列表
+		List<PageData>	varList = purchaseService.list(page);	//列出Purchase列表
 		mv.setViewName("trade/purchase/purchase_list");
 		mv.addObject("varList", varList);
 		mv.addObject("pd", pd);
@@ -141,7 +130,7 @@ public class PurchaseController extends BaseController {
 		ModelAndView mv = this.getModelAndView();
 		PageData pd = new PageData();
 		pd = this.getPageData();
-		pd = service.findById(pd);	//根据ID读取
+		pd = purchaseService.findById(pd);	//根据ID读取
 		mv.setViewName("trade/purchase/purchase_edit");
 		mv.addObject("msg", "edit");
 		mv.addObject("pd", pd);
@@ -156,7 +145,7 @@ public class PurchaseController extends BaseController {
 	@ResponseBody
 	public Object deleteAll() throws Exception{
 		logBefore(logger, Jurisdiction.getUsername()+"批量删除Purchase");
-		if(!Jurisdiction.buttonJurisdiction(menuUrl, "del")){return null;} //校验权限
+		if(!checkDelPermission()){return null;} //校验权限
 		PageData pd = new PageData();		
 		Map<String,Object> map = new HashMap<String,Object>();
 		pd = this.getPageData();
@@ -164,7 +153,7 @@ public class PurchaseController extends BaseController {
 		String DATA_IDS = pd.getString("DATA_IDS");
 		if(null != DATA_IDS && !"".equals(DATA_IDS)){
 			String ArrayDATA_IDS[] = DATA_IDS.split(",");
-			service.deleteAll(ArrayDATA_IDS);
+			purchaseService.deleteAll(ArrayDATA_IDS);
 			pd.put("msg", "ok");
 		}else{
 			pd.put("msg", "no");
@@ -181,7 +170,7 @@ public class PurchaseController extends BaseController {
 	@RequestMapping(value="/excel")
 	public ModelAndView exportExcel() throws Exception{
 		logBefore(logger, Jurisdiction.getUsername()+"导出Purchase到excel");
-		if(!Jurisdiction.buttonJurisdiction(menuUrl, "cha")){return null;}
+		if(!checkListPermission()){return null;}
 		ModelAndView mv = new ModelAndView();
 		PageData pd = new PageData();
 		pd = this.getPageData();
@@ -194,12 +183,12 @@ public class PurchaseController extends BaseController {
 		titles.add("联系电话");	//5
 		titles.add("买家地址");	//6
 		dataMap.put("titles", titles);
-		List<PageData> varOList = service.listAll(pd);
+		List<PageData> varOList = purchaseService.listAll(pd);
 		List<PageData> varList = new ArrayList<PageData>();
 		for(int i=0;i<varOList.size();i++){
 			PageData vpd = new PageData();
 			vpd.put("var1", varOList.get(i).getString("NAME"));	//1
-			vpd.put("var2", varOList.get(i).get("AMOUNT").toString());	//2
+			vpd.put("var2", varOList.get(i).getString("AMOUNT"));	//2
 			vpd.put("var3", varOList.get(i).getString("UNIT"));	//3
 			vpd.put("var4", varOList.get(i).getString("UID"));	//4
 			vpd.put("var5", varOList.get(i).getString("TEL"));	//5
@@ -212,9 +201,4 @@ public class PurchaseController extends BaseController {
 		return mv;
 	}
 	
-	@InitBinder
-	public void initBinder(WebDataBinder binder){
-		DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-		binder.registerCustomEditor(Date.class, new CustomDateEditor(format,true));
-	}
 }

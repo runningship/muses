@@ -21,12 +21,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.fh.controller.base.BaseController;
 import com.fh.entity.Page;
-import com.fh.service.trade.purchase.PurchaseService;
+import com.fh.service.BaseService;
 import com.fh.util.AppUtil;
+import com.fh.util.Jurisdiction;
 import com.fh.util.ObjectExcelView;
 import com.fh.util.PageData;
-import com.fh.util.Jurisdiction;
-import com.fh.util.Tools;
 
 /** 
  * 说明：求购列表
@@ -38,8 +37,9 @@ import com.fh.util.Tools;
 public class PurchaseController extends BaseController {
 	
 	String menuUrl = "purchase/list.do"; //菜单地址(权限用)
-	@Resource(name="purchaseService")
-	private PurchaseService purchaseService;
+	
+	@Resource(name="baseService")
+	private BaseService service;
 	
 	/**保存
 	 * @param
@@ -54,7 +54,7 @@ public class PurchaseController extends BaseController {
 		pd = this.getPageData();
 		pd.put("PURCHASE_ID", this.get32UUID());	//主键
 		pd.put("UID", "");	//用户id
-		purchaseService.save(pd);
+		service.save(pd);
 		mv.addObject("msg","success");
 		mv.setViewName("save_result");
 		return mv;
@@ -70,7 +70,7 @@ public class PurchaseController extends BaseController {
 		if(!Jurisdiction.buttonJurisdiction(menuUrl, "del")){return;} //校验权限
 		PageData pd = new PageData();
 		pd = this.getPageData();
-		purchaseService.delete(pd);
+		service.delete(pd);
 		out.write("success");
 		out.close();
 	}
@@ -86,7 +86,7 @@ public class PurchaseController extends BaseController {
 		ModelAndView mv = this.getModelAndView();
 		PageData pd = new PageData();
 		pd = this.getPageData();
-		purchaseService.edit(pd);
+		service.edit(pd);
 		mv.addObject("msg","success");
 		mv.setViewName("save_result");
 		return mv;
@@ -97,6 +97,7 @@ public class PurchaseController extends BaseController {
 	 * @throws Exception
 	 */
 	@RequestMapping(value="/list")
+//	@RequestMapping(method=RequestMethod.GET)
 	public ModelAndView list(Page page) throws Exception{
 		logBefore(logger, Jurisdiction.getUsername()+"列表Purchase");
 		//if(!Jurisdiction.buttonJurisdiction(menuUrl, "cha")){return null;} //校验权限(无权查看时页面会有提示,如果不注释掉这句代码就无法进入列表页面,所以根据情况是否加入本句代码)
@@ -108,7 +109,7 @@ public class PurchaseController extends BaseController {
 			pd.put("keywords", keywords.trim());
 		}
 		page.setPd(pd);
-		List<PageData>	varList = purchaseService.list(page);	//列出Purchase列表
+		List<PageData>	varList = service.list(page);	//列出Purchase列表
 		mv.setViewName("trade/purchase/purchase_list");
 		mv.addObject("varList", varList);
 		mv.addObject("pd", pd);
@@ -140,7 +141,7 @@ public class PurchaseController extends BaseController {
 		ModelAndView mv = this.getModelAndView();
 		PageData pd = new PageData();
 		pd = this.getPageData();
-		pd = purchaseService.findById(pd);	//根据ID读取
+		pd = service.findById(pd);	//根据ID读取
 		mv.setViewName("trade/purchase/purchase_edit");
 		mv.addObject("msg", "edit");
 		mv.addObject("pd", pd);
@@ -163,7 +164,7 @@ public class PurchaseController extends BaseController {
 		String DATA_IDS = pd.getString("DATA_IDS");
 		if(null != DATA_IDS && !"".equals(DATA_IDS)){
 			String ArrayDATA_IDS[] = DATA_IDS.split(",");
-			purchaseService.deleteAll(ArrayDATA_IDS);
+			service.deleteAll(ArrayDATA_IDS);
 			pd.put("msg", "ok");
 		}else{
 			pd.put("msg", "no");
@@ -193,7 +194,7 @@ public class PurchaseController extends BaseController {
 		titles.add("联系电话");	//5
 		titles.add("买家地址");	//6
 		dataMap.put("titles", titles);
-		List<PageData> varOList = purchaseService.listAll(pd);
+		List<PageData> varOList = service.listAll(pd);
 		List<PageData> varList = new ArrayList<PageData>();
 		for(int i=0;i<varOList.size();i++){
 			PageData vpd = new PageData();

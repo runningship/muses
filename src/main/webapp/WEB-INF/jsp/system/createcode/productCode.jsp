@@ -106,7 +106,7 @@
 							<tr>
 								<td style="width:76px;text-align: right;">上级包名：</td>
 								<td colspan="1"><input type="text" name="packageName" id="packageName" value="${pd.PACKAGENAME }" placeholder="这里输入包名  (请不要输入特殊字符,请用纯字母)" style="width:370px" title="包名称"/></td>
-								<td>&nbsp;&nbsp;例如:com.fh.controller.<font color="red" style="font-weight: bold;">system</font>&nbsp;&nbsp;只输入红色部分</td>
+								<td>&nbsp;&nbsp;例如:com.jm.muses.controller.<font color="red" style="font-weight: bold;">system</font>&nbsp;&nbsp;只输入红色部分</td>
 							</tr>
 						</table>
 						<table style="margin-top: 5px;">

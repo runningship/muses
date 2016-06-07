@@ -10,18 +10,18 @@
     </settings>
 
 	<typeAliases>
-		<typeAlias type="com.fh.entity.system.User" alias="User"/>
-		<typeAlias type="com.fh.entity.system.Role" alias="Role"/>
-		<typeAlias type="com.fh.entity.system.Menu" alias="Menu"/>
-		<typeAlias type="com.fh.entity.system.Dictionaries" alias="Dictionaries"/>
-		<typeAlias type="com.fh.entity.system.Department" alias="Department"/>
-		<typeAlias type="com.fh.util.PageData" alias="pd"/>
+		<typeAlias type="com.jm.muses.entity.system.User" alias="User"/>
+		<typeAlias type="com.jm.muses.entity.system.Role" alias="Role"/>
+		<typeAlias type="com.jm.muses.entity.system.Menu" alias="Menu"/>
+		<typeAlias type="com.jm.muses.entity.system.Dictionaries" alias="Dictionaries"/>
+		<typeAlias type="com.jm.muses.entity.system.Department" alias="Department"/>
+		<typeAlias type="com.jm.muses.util.PageData" alias="pd"/>
 		<!-- 分页 -->
-		<typeAlias type="com.fh.entity.Page" alias="Page"/>
+		<typeAlias type="com.jm.muses.entity.Page" alias="Page"/>
 	</typeAliases>
 	
 	<plugins>
-		<plugin interceptor="com.fh.plugin.PagePlugin">
+		<plugin interceptor="com.jm.muses.plugin.PagePlugin">
 			<property name="dialect" value="mysql"/>
 			<property name="pageSqlId" value=".*listPage.*"/>
 		</plugin>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util"  
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/aop 
+						http://www.springframework.org/schema/aop/spring-aop.xsd
+						http://www.springframework.org/schema/context 
+						http://www.springframework.org/schema/context/spring-context.xsd
+						http://www.springframework.org/schema/tx 
+						http://www.springframework.org/schema/tx/spring-tx.xsd
+						http://www.springframework.org/schema/util  
+     					http://www.springframework.org/schema/util/spring-util-3.0.xsd
+	">
+	
+	<!-- ================ Shiro start ================ -->
+		<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+			<property name="sessionManager" ref="sessionManager" />
+			<property name="realm" ref="casRealm" />
+		</bean>
+	
+	<bean id="redisCacheManager" class="com.jm.muses.cluster.RedisCacheManager"><!-- 自定义cacheManager -->
+        <property name="redisManager" ref="redisManager" />
+    </bean>
+    <bean id="memoryCacheManager" class="org.apache.shiro.cache.MemoryConstrainedCacheManager"><!-- 自定义cacheManager -->
+    </bean>
+    
+    <bean id="redisCache" class="com.jm.muses.cluster.RedisCache"><!-- 自定义cacheManager -->
+        <constructor-arg ref="redisManager"></constructor-arg>
+    </bean> 
+    <bean id="sessionManager"  class="com.jm.muses.cluster.MyDefaultWebSessionManager">
+<!-- 	<bean id="sessionManager" class="org.apache.shiro.web.session.mgt.ServletContainerSessionManager"> -->
+<!--         <property name="sessionDAO" ref="redisShiroSessionDAO" /> -->
+<!--        	<property name="cacheManager" ref="redisCacheManager" /> -->
+<!--         <property name="globalSessionTimeout" value="${shiro.session.timeout}" /> -->
+<!--         <property name="sessionValidationInterval" value="3000000" /> -->
+        <property name="sessionIdCookieEnabled" value="true" />
+    </bean>
+    <bean id="redisShiroSessionDAO" class="com.jm.muses.cluster.RedisSessionDAO">
+        <property name="redisManager" ref="redisManager" />
+    </bean>
+    <bean id="redisManager" class="com.jm.muses.cluster.RedisManager"></bean>
+    
+		<!-- 項目自定义的Realm -->
+	    <bean id="casRealm" class="com.jm.muses.interceptor.shiro.ShiroRealm" ></bean>
+		
+		<!-- Shiro Filter -->
+		<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+			<property name="securityManager" ref="securityManager" />
+			
+			<property name="loginUrl" value="/login_toLogin.do" />
+			
+			<property name="successUrl" value="/main/index" />
+			
+			<property name="unauthorizedUrl" value="/login_toLogin" />
+			
+			<property name="filterChainDefinitions">
+				<value>
+				/static/login/** 			= anon
+				/static/js/myjs/** 			= authc
+				/static/js/** 				= anon
+				/uploadFiles/uploadImgs/** 	= anon
+	           	/code.do 					= anon
+	           	/login_login	 			= anon
+	           	/app**/** 					= anon
+	           	/weixin/** 					= anon
+	           	/**							= authc
+				</value>
+			</property>
+		</bean>
+		
+	<!-- ================ Shiro end ================ -->
+   
+</beans>

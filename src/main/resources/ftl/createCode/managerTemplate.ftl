@@ -1,8 +1,8 @@
-package com.fh.service.${packageName}.${objectNameLower};
+package com.jm.musesservice.${packageName}.${objectNameLower};
 
 import java.util.List;
-import com.fh.entity.Page;
-import com.fh.util.PageData;
+import com.jm.musesentity.Page;
+import com.jm.musesutil.PageData;
 
 /** 
  * 说明： ${TITLE}接口

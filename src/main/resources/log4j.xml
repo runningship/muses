@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.fh">
+	<logger name="com.jm.muses">
 		<level value="trace" />
 	</logger>
 	

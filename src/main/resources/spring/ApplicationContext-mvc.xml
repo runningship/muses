@@ -13,7 +13,7 @@
 	
 	<aop:aspectj-autoproxy proxy-target-class="true"/>
 	
-	<context:component-scan base-package="com.fh.controller" />
+	<context:component-scan base-package="com.jm.muses.controller" />
 	<context:component-scan base-package="com.json" />
 
 	<mvc:default-servlet-handler/>
@@ -28,7 +28,7 @@
   	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/**/**"/>
-			<bean class="com.fh.interceptor.LoginHandlerInterceptor"/>
+			<bean class="com.jm.muses.interceptor.LoginHandlerInterceptor"/>
 		</mvc:interceptor>
 	</mvc:interceptors>
 	 
@@ -38,7 +38,7 @@
 		<property name="suffix" value=".jsp"/>
 	</bean>
 	
-	<bean id="exceptionResolver" class="com.fh.resolver.MyExceptionResolver"></bean>
+	<bean id="exceptionResolver" class="com.jm.muses.resolver.MyExceptionResolver"></bean>
 	<!-- 上传拦截，如最大上传值及最小上传值 -->
 	  <bean id="multipartResolver"   class="org.springframework.web.multipart.commons.CommonsMultipartResolver" >   
 		  <property name="maxUploadSize">    

@@ -1,23 +1,25 @@
-package com.fh.controller.${packageName}.${objectNameLower};
+package com.jm.musescontroller.${packageName}.${objectNameLower};
 
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Date;
 import org.springframework.stereotype.Controller;
 import javax.annotation.Resource;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import com.fh.controller.base.BaseController;
-import com.fh.entity.Page;
-import com.fh.util.AppUtil;
-import com.fh.util.ObjectExcelView;
-import com.fh.util.PageData;
-import com.fh.util.Jurisdiction;
+import com.jm.musescontroller.base.BaseController;
+import com.jm.musesentity.Page;
+import com.jm.musesutil.AppUtil;
+import com.jm.musesutil.ObjectExcelView;
+import com.jm.musesutil.PageData;
+import com.jm.musesutil.Jurisdiction;
 import org.apache.commons.lang.StringUtils;
-import com.fh.service.BaseService;
+import com.jm.musesutil.Tools;
+import com.jm.musesservice.BaseService;
 
 /** 
  * 说明：${TITLE}

@@ -1,11 +1,11 @@
-package com.fh.service.${packageName}.${objectNameLower};
+package com.jm.musesservice.${packageName}.${objectNameLower};
 
 import java.util.List;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
-import com.fh.dao.DaoSupport;
-import com.fh.entity.Page;
-import com.fh.util.PageData;
+import com.jm.musesdao.DaoSupport;
+import com.jm.musesentity.Page;
+import com.jm.musesutil.PageData;
 
 /** 
  * 说明： ${TITLE}

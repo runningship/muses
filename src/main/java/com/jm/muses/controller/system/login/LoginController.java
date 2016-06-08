@@ -36,6 +36,7 @@ import com.jm.muses.util.Const;
 import com.jm.muses.util.DateUtil;
 import com.jm.muses.util.JVMUtil;
 import com.jm.muses.util.Jurisdiction;
+import com.jm.muses.util.MD5;
 import com.jm.muses.util.PageData;
 import com.jm.muses.util.RightsHelper;
 import com.jm.muses.util.Tools;
@@ -98,7 +99,8 @@ public class LoginController extends BaseController {
 				String PASSWORD  = KEYDATA[1];	//登录过来的密码
 				pd.put("USERNAME", USERNAME);
 				if(isDebug || (Tools.notEmpty(sessionCode) && sessionCode.equalsIgnoreCase(code))){		//判断登录验证码
-					String passwd = new SimpleHash("SHA-1", USERNAME, PASSWORD).toString();	//密码加密
+//					String passwd = new SimpleHash("SHA-1", USERNAME, PASSWORD).toString();	//密码加密
+					String passwd = MD5.md5(PASSWORD);
 					pd.put("PASSWORD", passwd);
 					pd = userService.getUserByNameAndPwd(pd);	//根据用户名和密码去读取用户信息
 					if(pd != null){

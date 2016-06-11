@@ -1,0 +1,7 @@
+//普通类从spring容器中拿出service
+		WebApplicationContext webctx=ContextLoader.getCurrentWebApplicationContext();
+如何使用代码模板开发
+如何使用redis集群
+数据库密码改用MD5
+如何使用权限
+如何集成单点登录
